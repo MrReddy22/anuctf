@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cyber CTF Login</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Courier New', Courier, monospace;
+      background-color: #000;
+      color: #0f0;
+      overflow: hidden;
+    }
+    .navbar {
+      background: #0a0a0a;
+      padding: 10px 20px;
+      border-bottom: 1px solid #0f0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .navbar h1 {
+      color: #0f0;
+      margin: 0;
+    }
+    .navbar .menu {
+      display: flex;
+      gap: 20px;
+    }
+    .menu a {
+      text-decoration: none;
+      color: #0f0;
+      font-weight: bold;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 90vh;
+      text-align: center;
+    }
+    .login-box {
+      border: 2px solid #0f0;
+      padding: 20px;
+      border-radius: 10px;
+      background: rgba(0, 255, 0, 0.05);
+      width: 300px;
+    }
+    input {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      background: #000;
+      color: #0f0;
+      border: 1px solid #0f0;
+    }
+    .hint {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 14px;
+      color: #0f0;
+      opacity: 1;
+      animation: flicker 1.5s infinite, fadeOut 8s forwards 5s;
+      z-index: 999;
+      white-space: pre-line;
+    }
+
+    @keyframes flicker {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    @keyframes fadeOut {
+      to { opacity: 0; display: none; }
+    }
+
+    /* Hide flag in source */
+    .hidden-flag {
+      display: none;
+    }
+  </style>
+  <script>
+    // Disable right-click and dev tools
+    document.addEventListener('contextmenu', event => event.preventDefault());
+    document.onkeydown = function(e) {
+      if (e.key === "F12" || 
+          (e.ctrlKey && e.shiftKey && ['I','J','C'].includes(e.key.toUpperCase())) || 
+          (e.ctrlKey && e.key.toUpperCase() === 'U')) {
+        return false;
+      }
+    };
+  </script>
+</head>
+<body>
+  <div class="navbar">
+    <h1>CYBER PORTAL</h1>
+    <div class="menu">
+      <a href="#">Home</a>
+      <a href="#">CTF</a>
+      <a href="#">About</a>
+    </div>
+  </div>
+
+  <div class="hint">
+    > Sometimes, silence speaks loudest...<br>
+    > And sometimes, what you can't <i>see</i>, is exactly what you <i>need</i> to.
+  </div>
+
+  <div class="container">
+    <div class="login-box">
+      <h2>Secure Login</h2>
+      <input type="text" placeholder="Username" />
+      <input type="password" placeholder="Password" />
+      <input type="submit" value="Login" />
+    </div>
+  </div>
+
+  <!-- Hidden Flag -->
+  <div class="hidden-flag">
+    <!-- Here's your flag: THM{SAI_GAVE_TICKETS_TO_BANGKOK} -->
+  </div>
+</body>
+</html>
